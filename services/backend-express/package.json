@@ -13,11 +13,13 @@
   "author": "Alex Hiriavenko",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.22.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^22.0.0",
+    "@types/pg": "^8.20.0",
     "tsx": "^4.23.0",
     "typescript": "^6.0.3"
   }

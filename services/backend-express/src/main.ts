@@ -1,6 +1,7 @@
-import express from "express";
 import { loadEnvFile } from "node:process";
+import express from "express";
 import router from "./routes/index.js";
+import { connectToDatabase } from "./database/connect-db.js";
 
 try {
   loadEnvFile();
@@ -16,6 +17,8 @@ const PORT = Number(process.env.PORT ?? 3000);
 
 app.use(express.json());
 app.use("/api", router);
+
+await connectToDatabase();
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
