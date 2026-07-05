@@ -7,7 +7,10 @@
   "scripts": {
     "dev": "tsx watch src/main.ts",
     "build": "tsc",
-    "start": "node dist/main.js"
+    "start": "node dist/main.js",
+    "migrate": "node --env-file=.env ./node_modules/node-pg-migrate/bin/node-pg-migrate.js up --tsx --migrations-dir database/migrations",
+    "migrate:down": "node --env-file=.env ./node_modules/node-pg-migrate/bin/node-pg-migrate.js down --tsx --migrations-dir database/migrations",
+    "migrate:create": "node ./node_modules/node-pg-migrate/bin/node-pg-migrate.js create -j ts --migrations-dir database/migrations"
   },
   "keywords": [],
   "author": "Alex Hiriavenko",
@@ -20,6 +23,7 @@
     "@types/express": "^5.0.6",
     "@types/node": "^22.0.0",
     "@types/pg": "^8.20.0",
+    "node-pg-migrate": "^8.0.4",
     "tsx": "^4.23.0",
     "typescript": "^6.0.3"
   }
